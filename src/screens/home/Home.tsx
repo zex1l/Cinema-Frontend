@@ -1,8 +1,6 @@
-import { FC } from 'react'
-import { IHome } from './home.interface'
 import Heading from '@/components/ui/heading/Heading'
 
-const Home: FC<IHome> = () => {
+const Home = () => {
 	return (
 		<>
 			<Heading
