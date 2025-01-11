@@ -1,7 +1,6 @@
-
 import Heading from '@/components/ui/heading/Heading'
 
-const Home= () => {
+const Home = () => {
 	return (
 		<>
 			<Heading

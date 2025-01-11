@@ -1,6 +1,10 @@
 'use client'
 import { FC, PropsWithChildren } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Toaster from '@/components/ui/Toaster/Toaster'
+import Layout from '@/components/layout/Layout'
+import { Provider } from 'react-redux'
+import { store } from '@/store/store'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -12,7 +16,13 @@ const queryClient = new QueryClient({
 
 const MainProvider: FC<PropsWithChildren> = ({ children }) => {
 	return (
-		<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+		<Provider store={store}>
+
+		<QueryClientProvider client={queryClient}>
+			<Toaster />
+			<Layout>{children}</Layout>
+		</QueryClientProvider>
+		</Provider>
 	)
 }
 
