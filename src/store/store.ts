@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-// import { reducers } from '@/store/rootReducer'
+import { reducers } from '@/store/rootReducer'
 
 export const store = configureStore({
-	reducer: {},
-	devTools: true
+	reducer: reducers,
+	devTools: true,
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
 export type TypeRootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch

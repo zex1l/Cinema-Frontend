@@ -24,20 +24,25 @@ const AuthFields: FC<IAuthFields> = ({
 						message: 'Please enter a valid email address',
 					},
 				})}
-				placeholder='E-mail'
+				placeholder="E-mail"
 				error={errors.email}
 			/>
 
 			<Field
-				{...register('password', isPasswordRequired ? {
-					required: 'Password is required',
-					minLength: {
-						value: 6,
-						message: 'Min length should more 6 symbols!',
-					},
-				}: {})}
-				placeholder='Password'
-				type='password'
+				{...register(
+					'password',
+					isPasswordRequired
+						? {
+								required: 'Password is required',
+								minLength: {
+									value: 6,
+									message: 'Min length should more 6 symbols!',
+								},
+							}
+						: {}
+				)}
+				placeholder="Password"
+				type="password"
 				error={errors.password}
 			/>
 		</>
