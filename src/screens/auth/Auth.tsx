@@ -9,6 +9,7 @@ import Heading from '@/components/ui/heading/Heading'
 import Button from '@/components/ui/form-elements/Button'
 import AuthFields from '@/screens/auth/AuthFields'
 import { useActions } from '@/hooks/useActions'
+import AuthProvider from '@/providers/AuthProvider/AuthProvider'
 
 const Auth: FC = () => {
 	useAuthRedirect()
@@ -36,24 +37,26 @@ const Auth: FC = () => {
 	}
 
 	return (
-		<section className={styles.wrapper}>
-			<form onSubmit={handleSubmit(onHandleSubmit)} autoComplete="off">
-				<Heading title="Auth" classNames="mb-6" />
-				<AuthFields
-					register={RegisterInput}
-					formState={formState}
-					isPasswordRequired={true}
-				/>
-				<div className={styles.buttons}>
-					<Button onClick={() => setType('login')} disabled={isLoading}>
-						Login
-					</Button>
-					<Button onClick={() => setType('register')} disabled={isLoading}>
-						Register
-					</Button>
-				</div>
-			</form>
-		</section>
+		<AuthProvider Component={{}}>
+			<section className={styles.wrapper}>
+				<form onSubmit={handleSubmit(onHandleSubmit)} autoComplete="off">
+					<Heading title="Auth" classNames="mb-6" />
+					<AuthFields
+						register={RegisterInput}
+						formState={formState}
+						isPasswordRequired={true}
+					/>
+					<div className={styles.buttons}>
+						<Button onClick={() => setType('login')} disabled={isLoading}>
+							Login
+						</Button>
+						<Button onClick={() => setType('register')} disabled={isLoading}>
+							Register
+						</Button>
+					</div>
+				</form>
+			</section>
+		</AuthProvider>
 	)
 }
 

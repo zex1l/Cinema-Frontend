@@ -13,14 +13,12 @@ export const register = createAsyncThunk<IAuthResponse, IEmailPassword>(
 			toast.success('Registration success!')
 
 			return response.data
-		}
-		catch (error) {
+		} catch (error) {
 			toastError(error)
 			return thunkAPI.rejectWithValue(error)
 		}
 	}
 )
-
 
 export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	'auth/login',
@@ -30,28 +28,26 @@ export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
 			toast.success('Login success!')
 
 			return response.data
-		}
-		catch (error) {
+		} catch (error) {
 			toastError(error)
 			return thunkAPI.rejectWithValue(error)
 		}
 	}
 )
 
-export const logout  = createAsyncThunk('auth/logout',async () => {
-	  await AuthService.logout()
+export const logout = createAsyncThunk('auth/logout', async () => {
+	await AuthService.logout()
 })
 
-export const checkAuth = createAsyncThunk<IAuthResponse, IEmailPassword>(
+export const checkAuth = createAsyncThunk<IAuthResponse>(
 	'auth/check-auth',
 	async (_, thunkAPI) => {
 		try {
 			const response = await AuthService.getNewTokens()
 
 			return response.data
-		}
-		catch (error) {
-			if(errorCatch(error) === 'jwt expired') {
+		} catch (error) {
+			if (errorCatch(error) === 'jwt expired') {
 				toast.error('Your authentication is finished, pls sign in again')
 				thunkAPI.dispatch(logout())
 			}

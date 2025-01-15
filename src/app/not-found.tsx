@@ -1,6 +1,7 @@
 import React from 'react'
 import Heading from '@/components/ui/heading/Heading'
 import { Metadata } from 'next'
+import AuthProvider from '@/providers/AuthProvider/AuthProvider'
 
 export const metadata: Metadata = {
 	title: 'Page not found',
@@ -12,9 +13,9 @@ export const metadata: Metadata = {
 
 const NotFound = () => {
 	return (
-		<div>
+		<AuthProvider Component={{}}>
 			<Heading title="404 - Page not found" />
-		</div>
+		</AuthProvider>
 	)
 }
 

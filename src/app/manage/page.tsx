@@ -1,3 +1,5 @@
+import Manage from '@/screens/manage/Manage'
+import { NextAuthPage } from '@/shared/types/auth.types'
 import { Metadata, NextPage } from 'next'
 
 export const metadata: Metadata = {
@@ -9,9 +11,7 @@ export const metadata: Metadata = {
 }
 
 const ManagePage: NextPage = () => {
-	return <div>
-		Manage
-	</div>
+	return <Manage />
 }
 
 export default ManagePage

@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import MenuItem from '@/components/layout/navigation/menuContainer/MenuItem'
 import LogoutButton from '@/components/ui/LogoutButton/LogoutButton'
@@ -9,19 +8,29 @@ const AuthItems = () => {
 
 	return (
 		<>
-			{
-				user ? (
-					<>
-						<MenuItem item={{ icon: 'MdSettings', link: '/profile', title: 'Profile' }} />
-						<LogoutButton />
-					</>
-				) : <>
+			{user ? (
+				<>
+					<MenuItem
+						item={{ icon: 'MdSettings', link: '/profile', title: 'Profile' }}
+					/>
+					<LogoutButton />
+				</>
+			) : (
+				<>
 					<MenuItem item={{ icon: 'MdLogin', link: '/auth', title: 'Auth' }} />
 				</>
-			}
-			{user?.isAdmin && <MenuItem item={{icon: 'MdOutlineLock', link: getAdminHomeUrl(), title: 'Admin panel'}}/>}
+			)}
+			{user?.isAdmin && (
+				<MenuItem
+					item={{
+						icon: 'MdOutlineLock',
+						link: getAdminHomeUrl(),
+						title: 'Admin panel',
+					}}
+				/>
+			)}
 		</>
 	)
 }
 
-	export default AuthItems
+export default AuthItems
