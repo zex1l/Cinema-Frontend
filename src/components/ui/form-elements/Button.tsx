@@ -1,11 +1,17 @@
-import { FC } from 'react'
-import { IButton } from '@/components/ui/form-elements/form.interface'
+import { ButtonHTMLAttributes, FC } from 'react'
 import cn from 'classnames'
 import styles from './form.module.scss'
 
-const Button:FC<IButton> = ({children, className, onClick}, ...rest) => {
+const Button: FC<ButtonHTMLAttributes<HTMLButtonElement>> = (
+	{ children, className, onClick },
+	...rest
+) => {
 	return (
-		<button className={cn(styles.button, className)} onClick={onClick} {...rest}>
+		<button
+			className={cn(styles.button, className)}
+			onClick={onClick}
+			{...rest}
+		>
 			{children}
 		</button>
 	)

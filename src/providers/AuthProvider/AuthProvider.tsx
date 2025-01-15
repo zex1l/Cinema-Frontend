@@ -23,6 +23,8 @@ const AuthProvider: FC<TypeComponentsAuthFileds & PropsWithChildren> = ({
 	useEffect(() => {
 		const accessToken = Cookies.get('accessToken')
 		if (accessToken) checkAuth()
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	// Выход из системы если refreshToken отсутвует
@@ -30,6 +32,8 @@ const AuthProvider: FC<TypeComponentsAuthFileds & PropsWithChildren> = ({
 		const refreshToken = Cookies.get('refreshToken')
 
 		if (!refreshToken && user) logout()
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [pathname])
 
 	return !isOnlyAdmin && !isOnlyUser ? (

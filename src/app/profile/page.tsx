@@ -1,5 +1,4 @@
 import Profile from '@/screens/profile/Profile'
-import { NextAuthPage } from '@/shared/types/auth.types'
 import { Metadata, NextPage } from 'next'
 
 export const metadata: Metadata = {
@@ -10,7 +9,7 @@ export const metadata: Metadata = {
 	},
 }
 
-const ProfilePage: NextAuthPage = () => {
+const ProfilePage: NextPage = () => {
 	return <Profile />
 }
 

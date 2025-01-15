@@ -1,7 +1,5 @@
-import { AppProps } from 'next/app'
 import './globals.scss'
 import MainProvider from '@/providers/MainProvider'
-import { TypeComponentsAuthFileds } from '@/shared/types/auth.types'
 
 export default function RootLayout({
 	children,

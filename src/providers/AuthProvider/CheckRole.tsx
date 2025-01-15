@@ -1,6 +1,6 @@
 import { useAuth } from '@/hooks/useAuth'
 import { TypeComponentsAuthFileds } from '@/shared/types/auth.types'
-import { useRouter, usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { FC, PropsWithChildren } from 'react'
 
 const CheckRole: FC<TypeComponentsAuthFileds & PropsWithChildren> = ({
@@ -10,7 +10,6 @@ const CheckRole: FC<TypeComponentsAuthFileds & PropsWithChildren> = ({
 	const { user } = useAuth()
 
 	const { replace } = useRouter()
-	const pathname = usePathname()
 
 	const Children = () => <>{children}</>
 

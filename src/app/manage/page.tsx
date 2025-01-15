@@ -1,5 +1,4 @@
 import Manage from '@/screens/manage/Manage'
-import { NextAuthPage } from '@/shared/types/auth.types'
 import { Metadata, NextPage } from 'next'
 
 export const metadata: Metadata = {
