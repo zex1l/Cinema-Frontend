@@ -1,15 +1,14 @@
-import { FC } from 'react'
-import { IHome } from './home.interface'
 import Heading from '@/components/ui/heading/Heading'
+import AuthProvider from '@/providers/AuthProvider/AuthProvider'
 
-const Home: FC<IHome> = () => {
+const Home = () => {
 	return (
-		<>
+		<AuthProvider Component={{}}>
 			<Heading
 				classNames="text-gray-300 text-xl mb-8"
 				title="Watch movies online"
 			/>
-		</>
+		</AuthProvider>
 	)
 }
 
